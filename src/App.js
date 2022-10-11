@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import { NavBar } from './NavBar';
+import Home from'./Element/Home';
+import About from'./Element/About';
+import Contact from'./Element/Contact';
+import ApexChart from'./Element/chart';
+import Bisection from'./Element/Bisection';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/About" element={<About/>} />
+        <Route path="/Contact" element={<Contact/>} />
+        <Route path="/Chart" element={<ApexChart/>} />
+        <Route path="/Bisection" element={<Bisection/>} />
+
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
